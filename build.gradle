@@ -8,7 +8,7 @@ plugins {
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 
-group = 'com.example'
+group = 'com.kdh'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -16,10 +16,17 @@ repositories {
     mavenCentral()
 }
 
-
 dependencies {
+
+    /*
+        implementation : 개발할 때 내가 필요한 라이브러리
+        testImplementation : JAVA에서 테스트 코드를 작성할 때 필요한 라이브러리
+    */
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.dukescript.api:junit-browser-runner:1.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'junit:junit:4.13.1'
+
 }
 
 tasks.named('test') {
