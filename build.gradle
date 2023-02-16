@@ -22,10 +22,25 @@ dependencies {
         implementation : 개발할 때 내가 필요한 라이브러리
         testImplementation : JAVA에서 테스트 코드를 작성할 때 필요한 라이브러리
     */
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.dukescript.api:junit-browser-runner:1.0'
+/*    implementation 'org.springframework.boot:spring-boot-starter-jdbc'*/
+    implementation 'com.h2database:h2'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-mustache'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client' // 소셜 로그인 등 클라이언트 입장에서 소셜 기능 구현시 필요한 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.session:spring-session-jdbc'
+
+    testImplementation 'org.projectlombok:lombok:1.18.22'
+
+    compileOnly 'org.projectlombok:lombok:1.18.10'
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'junit:junit:4.13.1'
+    testImplementation 'org.springframework.boot:spring-boot-starter-mustache'
 
 }
 

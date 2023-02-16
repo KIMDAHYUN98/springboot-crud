@@ -2,9 +2,54 @@
 <html>
 <head>
     <title>스프링 부트 개인 과제</title>
-    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
+{{>layout/header}}
+
 <h1>영진전문대학교 WDB 김다현</h1>
+<div class="col-md-12">
+    <div class="row">
+        <a href="/posts/save" role="button" class="btn btn-secondary">글 등록</a>
+        <!--해당 값이 존재할 경우-->
+        {{#name}}
+            Logged in as: <span id="user">{{name}}</span>
+            <!-- /logout : 스프링 시큐리티에 기본적으로 제공하는 로그아웃 URL-->
+            <a href="/logout" role="button">Logout</a>
+        {{/name}}
+        <!--해당 값이 존재하지 않을 경우-->
+        {{^name}}
+            <a href="/oauth2/authorization/google" role="button">Google Login</a>
+            <a href="/oauth2/authorization/naver" role="button">Naver Login</a>
+        {{/name}}
+    </div>
+</div>
+<br>
+
+
+<!-- 목록 출력 영역 -->
+
+<table border="1">
+    <thead class="thead-strong">
+    <tr>
+        <th>게시글번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>최종수정일</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    {{#posts}}
+        <tr>
+            <td>{{id}}</td>
+            <td><a href="/posts/update/{{id}}">{{title}}</a></td>
+            <td>{{author}}</td>
+            <td>{{modifiedDate}}</td>
+        </tr>
+    {{/posts}}
+    </tbody>
+</table>
+
+{{>layout/footer}}
 </body>
 </html>
